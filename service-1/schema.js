@@ -4,9 +4,9 @@ const data = require('./data');
 // SCHEMA DEFINITION
 const typeDefs = `
 type Query {
-  user(id: ID!): User
+  article(id: ID!): Article
 }
-type User {
+type Article {
   id: ID!
   name: String
 }`
@@ -14,7 +14,7 @@ type User {
 // RESOLVERS
 const resolvers = {
 	Query: {
-		user: (root, args, context, info) => {
+		article: (root, args, context, info) => {
 			return data.find(item => item.id == args.id);
 		}
 	},
